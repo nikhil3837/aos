@@ -1,0 +1,125 @@
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+///////////////////////////////activity_main.xml/////////////////////////////////////////////////////////
+
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+    private Spinner spinner;
+    private Button addButton;
+    private Button removeButton;
+    private TextView responseTextView;
+
+    private ArrayAdapter<String> spinnerAdapter;
+    private List<String> spinnerItems;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        spinner = findViewById(R.id.spinner);
+        addButton = findViewById(R.id.addButton);
+        removeButton = findViewById(R.id.removeButton);
+        responseTextView = findViewById(R.id.responseTextView);
+
+        spinnerItems = new ArrayList<>();
+        spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerItems);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String newItem = "apple";
+                spinnerAdapter.add(newItem);
+                responseTextView.setText("Item added: " + newItem);
+            }
+        });
+
+        removeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String selectedItem = spinner.getSelectedItem().toString();
+                if (selectedItem != null) {
+                    spinnerAdapter.remove(selectedItem);
+                    responseTextView.setText("Item removed: " + selectedItem);
+                }
+            }
+        });
+    }
+}
+
+
+///////////////////////////MainActivity.javaś///////////////////////////////////////////////
+
+
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+    private Spinner spinner;
+    private Button addButton;
+    private Button removeButton;
+    private TextView responseTextView;
+
+    private ArrayAdapter<String> spinnerAdapter;
+    private List<String> spinnerItems;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        spinner = findViewById(R.id.spinner);
+        addButton = findViewById(R.id.addButton);
+        removeButton = findViewById(R.id.removeButton);
+        responseTextView = findViewById(R.id.responseTextView);
+
+        spinnerItems = new ArrayList<>();
+        spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerItems);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String newItem = "apple";
+                spinnerAdapter.add(newItem);
+                responseTextView.setText("Item added: " + newItem);
+            }
+        });
+
+        removeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String selectedItem = spinner.getSelectedItem().toString();
+                if (selectedItem != null) {
+                    spinnerAdapter.remove(selectedItem);
+                    responseTextView.setText("Item removed: " + selectedItem);
+                }
+            }
+        });
+    }
+}
+

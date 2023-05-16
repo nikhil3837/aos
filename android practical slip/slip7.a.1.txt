@@ -1,0 +1,22 @@
+//write a swift program to change the first and last character of a given string
+
+
+func changeFirstAndLastCharacter(_ input: String) -> String {
+    guard input.count > 1 else {
+        return input
+    }
+    
+    var modifiedString = input
+    let firstCharacter = modifiedString.removeFirst()
+    let lastCharacter = modifiedString.removeLast()
+    
+    modifiedString.insert(lastCharacter, at: modifiedString.startIndex)
+    modifiedString.insert(firstCharacter, at: modifiedString.endIndex)
+    
+    return modifiedString
+}
+
+// Example usage
+let inputString = "Hello, World!"
+let modifiedString = changeFirstAndLastCharacter(inputString)
+print(modifiedString) // Output: "!ello, WorldH"
